@@ -1,155 +1,157 @@
-# Client app usage
+# Avanzado
 
-The SDK can be used in similar way as previous to build a client app. Some classes changes but it works analog to explained above.
+También es posible bajar el nivel de abstracción.
 
-To get the SDK started to use, please add the following line inside the `onCreate` method of your Application class:
-
+## Registra al usuario
+Para registrar al usuario, debes crear una instancia de LetsTalkSessionManager:
 ```
-LetsTalkSDK.init(this);
+    let session = LetsTalkSessionManager(
+        longSubdomain: "springfield",
+        credentials: .guestClient(
+            name: "Homer J. Simpson",
+            email: "chunkylover53@aol.com"
+        ),
+        userInfo: nil
+    )!
+    // session es opcional porque podrías poner un string inválido en el subdominio
 ```
-
-### 1) Account management
-
-The main class to manage a client account is `LetsTalkClientAccountManager`
-There are several options to do a login in a client app, described as following:
-
-#### Guest login
-
+Existen varios tipos de credenciales:
 ```
-        new LetsTalkClientAccountManager.Builder()
-                .asGuestLogin()
-                .withSubdomain("domain")
-                .withIdentifier(<IDENTIFIER>)
-                .withEmail(<EMAIL>)
-                .build().connect(this, this.connectedListener);
-```
-
-The result is received on a callback.
-
-#### Login using a custom webview
-
-```
-        new LetsTalkClientAccountManager.Builder()
-                .asWebLogin()
-                .withSubdomain("domain")
-                .withRedirectSchema(<SCHEMA>)
-                .startForResult(this, WEB_LOGIN_REQUEST_CODE);
-```
-
-The result is received through `onActivityResult` overriding. 
-
-#### Login by token and provider
-
-```
-        new LetsTalkClientAccountManager.ByTokenAndProviderBuilder(<TOKEN>, <PROVIDER>)
-                .build()
-                .connect(this, this.connectedListener);
-```
-
-#### Login by sponsored client method and extra attributes
-
-```
-        Map<String, String> attrs = new HashMap<>();
-        attrs.put("Puesto", "Supervisor");
-        attrs.put("Legajo", "1322");
-        new LetsTalkClientAccountManager.Builder()
-                .asSponsoredClient()
-                .withSubdomain("domain")
-                .withKey(<KEY>)
-                .withToken(<TOKEN>)
-                .withName(<NAME>)
-                .withUID(<UID_TYPE>, <UID_RUT_OR_EMAIL>)
-                .withAttrs(attrs)
-                .build()
-                .connect(this, this.connectionListener);
-```
-
-Where `UID_TYPE` can be `UIDType.RUT` or `UIDType.EMAIL` and UID value according to this type.
-
-#### Get the current logged user
-
-```
-        Account currentAccount = LetsTalkClientAccountManager.getCurrentAccount(this);
-```
-
-#### Disconnect current logged user
-
-```
-        LetsTalkClientAccountManager.disconnectCurrentAccount(this);
-```
-
-#### Update client avatar
-
-```
-        File avatarFile = new File(<FILE_PATH>);
+    public enum Credentials {
+        // Si el usuario ya está logueado, usas este
+        // Para generar este token, es necesaria una integración especial con nuestro software
+        case client(token: String, provider: String)
         
-        LetsTalkClientAccountManager.changeProfilePhoto(WLClientActivity.this, avatarFile, 
-                new ProfileUpdatedListener() {
-                        @Override
-                        public void profileUpdated() {
-                            Log.i(TAG, "profile photo updated" );
-                        }
-
-                        @Override
-                        public void error() {
-                            Log.w(TAG, "error updating profile photo");
-                        }
-                    });
+        // Si la app no requiere crearse una cuenta
+        case guestClient(name: String, email: String)
+        
+        // Si estás ocupando el SDK para hacer una app para agentes
+        case agent(username: String, password: String)
+    }
 ```
-
-### 2) Load inquiries
-
-The result is received through a callback
-
+## Escoge una conversación que quieras abrir
 ```
-        LetsTalkClientChatManager
-                .getInstance()
-                .loadInquiries(this, this.inquiriesLoaded);
+    // Este objeto representa la conversación que queremos abrir
+    let conversation = ConversationIdentifier.unexisting(
+        description: .inquiryless(
+            title: "Conversación",
+            greeting: "Hola, ¿en qué te podemos ayudar?",
+            initialMessages: nil
+        )
+    )
 ```
-
-Other way is fetching the inquiries and use the default provided views to show them and manage the click on select inquiries to start conversations, open a URL or show sub-inquiries.
-
+Para esto tienes varias opciones:
 ```
-        Intent intent = new Intent(this, InquiriesActivity.class);
-        intent.putExtra(LTConstants.OPEN_CHAT_ON_SELECT, true);
-        startActivityForResult(intent, 1);
+    enum ConversationIdentifier {
+        // Si conoces el id de una conversación que ya existe, usas este:
+        case existing(conversationId: Int)
+        
+        // Si ya descargaste una conversación, usando otra de las opciones avanzadas, usas este:
+        case downloaded(conversation: Conversation)
+        
+        // Y si lo que quieres es crear una nueva conversación, usas este:
+        case unexisting(description: ConversationDescription)
+    }
 ```
-
-If `intent.putExtra(LTConstants.OPEN_CHAT_ON_SELECT, true);` is not passed or is `false`, the result of selection is managed onActivityResult, else it's auto managed by the SDK.
-
-If the organization has no inquiries, a conversation can be created anyway. In this case, you can init a new conversation as following:
-
+En caso de querer crear una conversación, necesitas describir qué tipo de conversación es la que necesitas:
 ```
-        LetsTalkConversationLoader.getInstance()
-                .loadWith(new ConversationDescription.Builder(this, null)
-                .withNoInquiry()
-                .build());
+    enum ConversationDescription {
+        // Si tu organización no ocupa inquiries, usas este:
+        case inquiryless(title: String, greeting: String, initialMessages: SendableMessage.Content?)
+        
+        // Si tu organización ocupa inquiries y ya descargaste la descripción de uno, usas este:
+        case externalInquiry(inquiry: InquiryData, initialMessages: SendableMessage.Content?)
+        
+        // Estas opciones son solo para apps para agentes:
+        case internalInquiry(inquiryId: Int, inquiryName: String, membersIds: [Int])
+        case directClientContact(clientId: Int, membersIds: [Int])
+        case directUserContact(userId: Int, membersIds: [Int])
+        case groupConversation(groupId: Int, groupName: String)
+    }
 ```
-
-A new conversation activity is opened and ready to chat.
-
-### 3) Load conversations
-
-The result is received through a callback
-
+## Abre una ventana de chat
 ```
-        LetsTalkClientChatManager
-                .getInstance()
-                .loadConversations(this, this.conversationsLoaded);
+    // Este objeto representa la conversación que queremos abrir
+    let conversation = ConversationIdentifier.unexisting(
+        description: .inquiryless(
+            title: "Conversación",
+            greeting: "Hola, ¿en qué te podemos ayudar?",
+            initialMessages: nil
+        )
+    )
+    
+    // Este objeto maneja los datos de la conversación
+    let conversationManager = ConversationManager(
+        conversation: conversation,
+        sessionManager: session,
+        externalNotificationSignal: nil
+    )
+    
+    // Este es el ViewController que proveemos nosotros
+    // Pero usando directamente el conversationManager, se puede construir uno completamente distinto
+    let chatViewController = JsqChatViewController(conversationManager: conversationManager)
 ```
-
-Other way is fetching the conversations and use the default provided views to show them. 
-
+## Obten la lista de conversaciones que ha tenido el usuario
+Si deseas soportar que el cliente pueda tener múltiples conversaciones simultaneamente,
+puedes descargar la lista de conversaciones actuales
 ```
-        LetsTalkClientChatManager
-                .getInstance()
-                .showConversations(this, ConversationState.ALL);
+    let conversationListProvider = PaginatedDataProvider<Conversation>.default(session: session)
+    let currentConversationList: FullData<Conversation> = conversationListProvider.latest.value
+    print(currentConversationList)
 ```
-
-If you want to use a view that shows conversations and also allows to start a new one from that screen, you can use the following method:
-
+## Obten la lista de inquiries que puede seleccionar el usuario
+Si deseas mostrarle al usuario distintas opciones para iniciar una conversación,
+puedes descargar la lista de inquiries más reciente
 ```
-        LetsTalkClientChatManager
-                .getInstance()
-                .showConversationsWithNewOption(this, ConversationState.ALL);
+    let inquiryListProvider = Inquiries.Provider.default(session: session)
+    let currentInquiryList: [Inquiries.Inquiry] = inquiryListProvider.latest.value
+    print(currentInquiryList)
+```
+## Provee tus propios textos y traducciones
+Nosotros proveemos el SDK en inglés y castellano, pero puedes agregar más idiomas,
+o cambiar el texto para calzar mejor con la imagen que deseas presentar a tus usuarios.
+
+Para customizar esto, solo debes crear un archivo llamado `ChatSDK.strings`
+y agregarlo a tu aplicación de tal forma que quede dentro del `main bundle`.
+Con ayuda de Xcode puedes localizar este archivo para incluír todos los idiomas que necesites.
+
+Si pienzas modificar estos textos, te recomendamos usar nuestros archivos como base,
+los pueedes encontrar en `Localization/en.lproj/ChatSDK.strings` y `Localization/es-419.lproj/ChatSDK.strings`.
+
+Por ejemplo, si quisieras darle un tono más coloquial a tu aplicación, podrías agregar esto a tu `ChatSDK.strings`
+
+    // Esta es la línea original en `Localization/en.lproj/ChatSDK.strings`
+    // "error_sending.reason" = "Hubo un error al enviar este mensaje, ";
+    "error_sending.reason" = "Pucha que lata, no se pudo mandar tu mensaje";
+
+O al contrario, si lo que planeas es darle un tono muy serio y técnico
+
+    "error_sending.reason" = "Se produjo un fallo en la comunicación con el servidor al intentar enviar este mensaje";
+
+Esta es la lista completa de `strings` que puedes editar en la versión actual del SDK:
+```
+    // En caso de fallar el envío de un mensaje:
+    error_sending.reason
+    error_sending.try_again_question
+    error_sending.try_again_yes
+    error_sending.try_again_no
+    
+    // Si el usuario hace click en un mapa,
+    // se le da la opción de abrirlo en Maps o Google Maps si lo tiene instalado
+    share_location.open_in_maps
+    share_location.open_in_google_maps
+    share_location.cancel
+    
+    // En el caso de que por algún problema de configuración
+    // no sea posible determinar el título correcto para la conversación
+    // se usará este título en la barra de navegación
+    conversation_default_title
+    
+    // Esto es sólo importante para aplicaciones para agentes:
+    kicked_out.reason
+    kicked_out.stay_question
+    kicked_out.stay_as_viewer
+    kicked_out.stay_but_errored
+    kicked_out.stay_no
+    send_internal_message
 ```
