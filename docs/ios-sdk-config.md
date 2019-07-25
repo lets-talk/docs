@@ -1,4 +1,4 @@
-# Usando Let's Talk en iOS con el ChatSDK 0.5.0
+#  Let's Talk iOS SDK con el ChatSDK 0.5.0
 
 El SDK soporta iOS 9 en adelante y está hecho en Swift 4.2.
 
