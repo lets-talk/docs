@@ -22,6 +22,8 @@
    * Component Library
      * [Showcase](storybook.md)
 * Aplicación iOs 
-   * [SDK](ios-sdk.md)
+   * [Configuración del SDK](ios-sdk-config.md)
+   * [Avanzado](ios-sdk-client-usage.md)
 * Aplicación Android 
-   * [SDK](android-sdk.md)
+   * [Configuración del SDK](android-sdk-config.md)
+   * [Uso](android-sdk-client-usage.md)
