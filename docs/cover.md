@@ -8,5 +8,5 @@
 * Api potente para manejo de eventos/comportamiento.
 * Libreria liviana: Solo 130 kB gziped
 
-[GitHub](https://github.com/lets-talk/lt-tool-kit)
+[GitHub](https://github.com/lets-talk/docs)
 [Documentación](#widget)
