@@ -1,27 +1,27 @@
 * Chat Web
- * Instalación
+   * Instalación
 
-   * [Instalación Simple](simple.md)
-   * [Instalacion Avanzada](advanced.md)
+     * [Instalación Simple](simple.md)
+     * [Instalacion Avanzada](advanced.md)
 
- * API
+   * API
 
-   * [Metodos disponibles](publicapi.md)
+     * [Metodos disponibles](publicapi.md)
 
- * Eventos
+   * Eventos
 
-   * [Eventos Temporales](apievents.md)
-   * [Eventos Comportamiento <sup style="color:red">(nuevo)<sup>](apibox.md)
+     * [Eventos Temporales](apievents.md)
+     * [Eventos Comportamiento <sup style="color:red">(nuevo)<sup>](apibox.md)
 
- * Ejemplos
+   * Ejemplos
 
-   * [Abrir con click](example1.md)
-   * [Iniciar con Inquiry](example2.md)
-   * [Playground](playground.md)
+     * [Abrir con click](example1.md)
+     * [Iniciar con Inquiry](example2.md)
+     * [Playground](playground.md)
 
- * Component Library
-   * [Showcase](storybook.md)
+   * Component Library
+     * [Showcase](storybook.md)
 * Aplicación iOs 
- * [SDK](ios-sdk.md)
+   * [SDK](ios-sdk.md)
 * Aplicación Android 
- * [SDK](android-sdk.md)
+   * [SDK](android-sdk.md)
