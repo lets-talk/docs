@@ -14,9 +14,11 @@ En las distintas fases y versiones de instalación de hace referencia a variable
 
 ## Sesión de usuario (Utilizacion en sitio privado)
 
+### Autenticación Simple
+
 En particular, para sitios que posean una **sesión con usuario identificado**, es decir, donde ya se sabe quién es el visitante el widget permite ser inicializado con una sesión activa para el visitante autorizada por las credenciales de la misma organización. Esta funcionalidad es útil cuando se usa el widget en sitios privados como: intranet, web internas con usuarios con sesión iniciada.
 
-A cada organización se le provee una pareja **(consumer_key, consumer_token)** de credenciales que permite integrar su propia logica de authenticación de usuarios. Si no posee esta información deberá solicitarlo escribiendo a **soporte@letstalk.com**.
+A cada organización se le provee una pareja **(`consumer_key`, `consumer_token`)** de credenciales que permite integrar su propia logica de authenticación de usuarios. Si no posee esta información deberá solicitarlo escribiendo a **soporte@letstalk.com**.
 Deberá proveer dicha pareja al momento de la inicialización del chat.
 
 Al inicializar el widget con **consumer** setting y **visitor** **el visitante no tendrá que iniciar sesión** en el widget.
@@ -44,6 +46,47 @@ window.$LT(function(messenger) {
   });
 });
 ```
+
+### Autenticación Avanzada
+
+Para sitio que requieran un capa adicional de seguridad es posible establecer un autenticación vía `HMAC 256` y un secreto compartido. El flujo de la autenticación es el siguiente:
+
+1. Adicionalmente a la pareja **(`consumer_key`, `consumer_token`)**, Let's Talk provee a cada organización un `secret`de 320 Bytes par a la generación de un hash.
+2. El `secret` debe mantenerse privado y nunca divulgarse.
+3. Cada vez que se inicialice el widget, el cliente, vía lenguaje de servidor, debe computar un hash usando la función `HMAC 256` con el secret y el uuid del `visitor`. Ejemplos de código para diversos lenguajes pueden ser vistos en el siguiente enlace: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/. 
+En el caso de ruby sería de la siguiente forma:
+```ruby
+OpenSSL::HMAC.hexdigest(
+  'sha256', # funcion de hash
+  'secreto-de-organizacion', # llave secreta (¡mantener segura!)
+  current_user.email #  uid del cliente
+)
+```
+4. El hash generado debe enviarse como parámetro `client_hash` en la inicialización del widget:
+
+```javascript
+window.$LT(function(messenger) {
+  messenger.setByName("[widget_name]");
+  messenger.settings({
+  	eager_loading: true,
+  	consumer: {
+    	  key:   '[consumer_key]',
+    	  token: '[consumer_token]'
+  	},
+    client_hash: '[hash_computado]'
+  	visitor: {
+    	  name:  'Client Demo',
+    	  email: 'client.demo@letsta.lk',
+      	attrs: {
+          sucursal: 'Sucursal Providencia',
+          tipoBanca: 'Banca Personal',
+          convenio: 'Convenio Pyme',
+      	}
+  	}
+  });
+});
+```
+5. El backend de Let's Talk, utilizando el `secret`y el `email` computa la función `HMAC 256` y obtiene un hash. Si el hash computado es igual al `client_hash` recibido entonces autoriza la request. En caso contrario la rechaza.
 
 ## Atributos del usuario
 
