@@ -87,7 +87,7 @@ window.$LT(function(messenger) {
 });
 ```
 4. Es muy importante que el `client_hash` usando el `secreto` se genere en el *lado del servidor* y nunca en el lado del cliente. Si el `secreto` se publicara en el lado del cliente la seguridad de la autenticación se vería comprometida.
-6. El backend de Let's Talk, utilizando el `secreto`y el `email` computa la función `HMAC 256` y obtiene un hash. Si el hash computado es igual al `client_hash` recibido entonces autoriza la request. En caso contrario la rechaza.
+6. El backend de Let's Talk, utilizando el `secreto`y el `email`, computa la función `HMAC 256` y obtiene un hash. Si el hash computado es igual al `client_hash` recibido entonces autoriza la request. En caso contrario la rechaza.
 
 ## Atributos del usuario
 
