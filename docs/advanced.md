@@ -12,7 +12,7 @@ En las distintas fases y versiones de instalación de hace referencia a variable
 [consumer_token]: zzzzzzzzzzzzzzzz
 ```
 
-## Sesión de usuario (Utilizacion en sitio privado)
+## Sesión de usuario (Utilización en sitio privado)
 
 ### Autenticación Simple
 
@@ -51,14 +51,14 @@ window.$LT(function(messenger) {
 
 Para sitio que requieran un capa adicional de seguridad es posible establecer un autenticación vía `HMAC 256` y un secreto compartido. El flujo de la autenticación es el siguiente:
 
-1. Adicionalmente a la pareja **(`consumer_key`, `consumer_token`)**, se  debe solicitar a Let's Talk la generación de un `secreto`  compartido escribiendo a  **soporte@letstalk.com**. Este secreto será utilizado para el computo de un hash `HMAC 256`.
+1. Adicionalmente a la pareja **(`consumer_key`, `consumer_token`)**, se  debe solicitar a Let's Talk la generación de un `secreto`  compartido escribiendo a  **soporte@letstalk.com**. Este `secreto` será utilizado para el computo de un hash `HMAC 256`.
 2. El `secreto` debe mantenerse privado y nunca divulgarse.
 3. Cada vez que se inicialice el widget, el cliente, vía **lenguaje de servidor**, debe computar un hash usando la función `HMAC 256` con el `secreto` y el `uid` del visitante. Ejemplos de código para diversos lenguajes pueden ser vistos en el siguiente enlace: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/. 
 En el caso de ruby sería de la siguiente forma:
 ```ruby
 OpenSSL::HMAC.hexdigest(
   'sha256', # funcion de hash
-  'secreto-de-organizacion', # llave secreta (¡mantener segura!)
+  'secreto', # llave secreta (¡mantener segura!)
   current_user.email #  uid del cliente
 )
 ```
