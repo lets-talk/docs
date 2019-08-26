@@ -51,9 +51,9 @@ window.$LT(function(messenger) {
 
 Para sitio que requieran un capa adicional de seguridad es posible establecer un autenticación vía `HMAC 256` y un secreto compartido. El flujo de la autenticación es el siguiente:
 
-1. Adicionalmente a la pareja **(`consumer_key`, `consumer_token`)**, Let's Talk provee a cada organización un `secret`de 320 Bytes par a la generación de un hash.
-2. El `secret` debe mantenerse privado y nunca divulgarse.
-3. Cada vez que se inicialice el widget, el cliente, vía lenguaje de servidor, debe computar un hash usando la función `HMAC 256` con el secret y el uuid del `visitor`. Ejemplos de código para diversos lenguajes pueden ser vistos en el siguiente enlace: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/. 
+1. Adicionalmente a la pareja **(`consumer_key`, `consumer_token`)**, se  debe solicitar a Let's Talk la generación de un `secreto`  compartido escribiendo a  **soporte@letstalk.com**. Este secreto será utilizado para el computo de un hash `HMAC 256`.
+2. El `secreto` debe mantenerse privado y nunca divulgarse.
+3. Cada vez que se inicialice el widget, el cliente, vía **lenguaje de servidor**, debe computar un hash usando la función `HMAC 256` con el `secreto` y el `uid` del visitante. Ejemplos de código para diversos lenguajes pueden ser vistos en el siguiente enlace: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/. 
 En el caso de ruby sería de la siguiente forma:
 ```ruby
 OpenSSL::HMAC.hexdigest(
@@ -86,7 +86,8 @@ window.$LT(function(messenger) {
   });
 });
 ```
-5. El backend de Let's Talk, utilizando el `secret`y el `email` computa la función `HMAC 256` y obtiene un hash. Si el hash computado es igual al `client_hash` recibido entonces autoriza la request. En caso contrario la rechaza.
+4. Es muy importante que el `client_hash` usando el `secreto` se genere en el *lado del servidor* y nunca en el lado del cliente. Si el `secreto` se publicara en el lado del cliente la seguridad de la autenticación se vería comprometida.
+6. El backend de Let's Talk, utilizando el `secreto`y el `email` computa la función `HMAC 256` y obtiene un hash. Si el hash computado es igual al `client_hash` recibido entonces autoriza la request. En caso contrario la rechaza.
 
 ## Atributos del usuario
 
