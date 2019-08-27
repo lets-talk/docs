@@ -53,7 +53,7 @@ Para sitio que requieran un capa adicional de seguridad es posible establecer un
 
 1. Adicionalmente a la pareja **(`consumer_key`, `consumer_token`)**, se  debe solicitar a Let's Talk la generación de un `secreto`  compartido escribiendo a  **soporte@letstalk.com**. Este `secreto` será utilizado para el computo de un hash `HMAC 256`.
 2. El `secreto` debe mantenerse privado y nunca divulgarse.
-3. Cada vez que se inicialice el widget, el cliente, vía **lenguaje de servidor**, debe computar un hash usando la función `HMAC 256` con el `secreto` y el `uid` del visitante. Ejemplos de código para diversos lenguajes pueden ser vistos en el siguiente enlace: https://www.jokecamp.com/blog/examples-of-creating-base64-hashes-using-hmac-sha256-in-different-languages/. 
+3. Cada vez que se inicialice el widget, el cliente, vía **lenguaje de servidor**, debe computar un hash usando la función `HMAC 256` con el `secreto` y el `uid` del visitante. 
 En el caso de ruby sería de la siguiente forma:
 ```ruby
 OpenSSL::HMAC.hexdigest(
@@ -73,7 +73,7 @@ window.$LT(function(messenger) {
     	  key:   '[consumer_key]',
     	  token: '[consumer_token]'
   	},
-    client_hash: '[hash_computado]'
+    client_hash: '[hash_computado]',
   	visitor: {
     	  name:  'Client Demo',
     	  email: 'client.demo@letsta.lk',
