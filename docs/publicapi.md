@@ -62,7 +62,15 @@ Una vez que el chat está instalado y activo en la web se le puede enviar metada
 *Ejemplo:*
 ```javascript
   window.$LT.startConversation({
-    inquiry: [inquiry_id],
+    inquiry: 34,
+    message: { 
+      content: "prueba", 
+      content_type: "text" 
+      }, 
+    metadata: { 
+      vip: true, 
+      golden: "yes" 
+      }
   });
 ```
 
