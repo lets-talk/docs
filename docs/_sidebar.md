@@ -3,7 +3,11 @@
 
      * [Instalación Simple](simple.md)
      * [Instalacion Avanzada](advanced.md)
-
+   
+   * Uso sin instalación
+   
+     * [Inicialización por parámetros de URL](preset_chat.md)
+   
    * API
 
      * [Metodos disponibles](publicapi.md)
