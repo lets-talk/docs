@@ -52,7 +52,7 @@ La ***URL*** transformada según la herramienta descrita anteriormente sería la
 
 #### Metadatos
 
-Es posible utilizar parámetros personalizados opcionales para agregar metadatos tanto al cliente como al chat. Pueden ser usados tantos parámetros caracteres mientras el largo total de la ***URL*** no sobrepase los 2000 caracteres. Más información en [este hilo de stack overflow](https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers).
+Es posible utilizar parámetros personalizados opcionales para agregar metadatos tanto al cliente como al chat. Pueden ser usados tantos parámetros mientras el largo total de la ***URL*** no sobrepase los 2000 caracteres. Más información en [este hilo de stack overflow](https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers).
 
 #### Metadatos del cliente
 
