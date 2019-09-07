@@ -73,7 +73,7 @@ Dónde:
 
 Ejemplo:
 
-Si deseamos enviar atributos del cliente como edad, sexo y estado civil, los ***query params*** serían los siguiente:
+Si deseamos enviar atributos del cliente como "**edad**", "**sexo**" y "**estado civil**", los ***query params*** serían los siguientes:
 
 `visitor_attrs_edad=45&visitor_attrs_sexo=masculino&visitor_attrs_estado_civil=soltero`
 
@@ -98,7 +98,7 @@ Dónde:
 
 Ejemplo:
 
-Si deseamos enviar atributos del chat como fuente, canal y prioridad, los ***query params*** serían los siguiente:
+Si deseamos enviar atributos del chat como "**fuente**", "**canal**" y "**prioridad**", los ***query params*** serían los siguiente:
 
 `chat_metadata_fuente=email&chat_metadata_canal=postventa&chat_metadata_prioridad=10`
 
