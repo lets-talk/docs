@@ -129,7 +129,7 @@ Para identificar los mensajes de una conversación de un ***usuario/cliente*** s
 |-----------------|----------------------------------|
 | conversation_id | Identificador de la conversación |
 | person_type     | `Client`                         |
-| person_id       | Id del cliente                    |
+| person_id       | Id del cliente                   |
 | type            | `NORMAL`                         |
 
 Para identificar los mensajes de una conversación de un ***usuario/agente*** se deben utilizar el siguiente filtro sobre los eventos:
@@ -150,15 +150,60 @@ Si se da el caso en que el mensaje corresponde a una nueva conversación (por se
 ##### Consideración 2
 !>Se debe hacer una llamada a la [API de Let’s Talk](https://apidoc.ltmessenger.com) para obtener todos los mensajes anteriores de la conversación si los hubiera, ya que la asignación al ***usuario/agente*** podría hacerse en cualquier momento de la conversación y no necesariamente el mensaje que llega es el primer mensaje. La descripción de este endpoint puede verse en el endpoing [Obtener mensajes de conversación](https://apidoc.ltmessenger.com/#obtener-mensajes-de-conversacion)
 
+### Evento de cierre de conversación
+
+#### Payload
+
+```json
+
+{
+  "namespace": "messages.create",
+  "data": {
+    "id": 32669386,
+    "subject": null,
+    "content": "closed",
+    "type": "SYSTEM",
+    ...
+    "conversation_id": 1491619,
+    ...
+    "client_name": "Flavia Horton",
+    ...
+    }
+  }
+}
+```
+
+#### Descripción
+
+Este ***msgPN*** se gatilla cuando se cierra la conversación. Los campos relevantes para filtrar este tipo de ***msgPN*** son los siguientes:
+
+| Propiedad       | Valor                            |
+|-----------------|----------------------------------|
+| conversation_id | Identificador de la conversación |
+| content         | `closed`                         |
+| type            | `SYSTEM`                         |
+
+
 ## Conexión a Pubnub
 
 PubNub provee más de 70 SDKs para distintos tipos de lenguajes. La documentación al respecto puede ser consultada en el siguiente enlace:
 
 https://www.pubnub.com/docs
 
-Los siguientes ejemplos son implementados en lenguaje JavaScript, SDK versión 4. La documentación puede ser visualiza en el siguiente enlace:
 
- https://www.pubnub.com/docs/javascript/pubnub-javascript-sdk-v4.
+### Credenciales
+
+Para realizar la conexión a PubNub son necesarios los siguientes datos:
+
+| Nombre| Descripción|
+|--|--|
+|subkey| Llave de subscripción|
+|pubkey| Llave de publicación|
+|user-id| Identificador (**entero**) del ***usuario/agente*** en Let's Talk|
+|auth_key| *API Key* de autenticación del ***usuario/agente*** en Let's Talk|
+
+
+Los datos deben ser solicitados directamente a Let's Talk a través del correo soporte@ltmessenger.com
 
 
 ### Ejemplo HTML + Javascript
@@ -215,3 +260,5 @@ A continuación se presenta un archivo HTML de ejemplo que implementa la suscrip
 </html>
 
 ```
+
+!> El ejemplo anterior fue implementado en lenguaje JavaScript, SDK versión 4. La documentación puede ser visualizada en https://www.pubnub.com/docs/javascript/pubnub-javascript-sdk-v4.
