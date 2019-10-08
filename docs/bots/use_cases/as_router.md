@@ -11,7 +11,7 @@ A continuación se listan algunos casos de uso de ejemplo al respecto.
 1. BOT mantiene conversación con usuario de Whatsapp y decide derivar a un humano en Let's Talk
 2. BOT se suscribe a PubNub
 3. BOT crea un cliente en Let's Talk utilizando el endpoint de la API de Let's Talk [Crear/obtener un cliente](https://apidoc.ltmessenger.com/#crear-obtener-un-cliente)
-4. BOT memoriza el token del cliente que retorna el paso anterior
+4. BOT memoriza el token del cliente que obtiene del paso anterior
 5. BOT inicia una conversación en Let's Talk utilizando el endpoint de la API de Let's Talk [Crear conversación](https://apidoc.ltmessenger.com/#crear-conversacion) y el token memorizado.
   - (Recomendado) En el campo mensaje concatenar todos los mensajes anteriores de la conversación del usuario de whatsapp para que el ***usuario/agente*** lea el contexto de la conversación, o bien agregar una referencia (enlace) a un lugar donde poder ver la historia de la conversación.
 6. Cuando el BOT recibe mensajes del usuario WhatsApp debe enviarlos a Let's Talk utilizando el endpoint [Crear mensaje de texto plano](https://apidoc.ltmessenger.com/#crear-mensaje-de-texto-plano) o [Crear mensaje con archivo adjunto](https://apidoc.ltmessenger.com/#crear-mensaje-con-archivo-adjunto)
