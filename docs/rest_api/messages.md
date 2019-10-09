@@ -82,7 +82,13 @@ Publicación de un mensaje de texto plano a una conversación. El autor del mens
 
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->
 ## Crear mensaje con archivo adjunto
@@ -195,7 +201,13 @@ Los valores permitidos pueden estar restringidos por configuración de la organi
 | `video/quicktime`                                                           | QuickTime                                       |
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->
 
@@ -319,6 +331,12 @@ Obtención de los mensajes de una conversación.
 
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->

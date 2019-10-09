@@ -64,6 +64,12 @@ Obtención de la información de ***usuario/cliente***. Solo es posible obtener 
 ### Query Parameters
 Sin parámetros.
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->

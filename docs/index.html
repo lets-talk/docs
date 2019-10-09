@@ -7,7 +7,6 @@
   <meta name="description" content="This is a Widget project">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <link rel="stylesheet" href="//unpkg.com/docsify-copy-code/styles.css">
   <script src="//unpkg.com/docsify-copy-code@2.0.0/dist/docsify-copy-code.min.js"></script>
   <link rel="stylesheet" href="css/custom.css">
   <style>
@@ -34,7 +33,8 @@
       // repo: 'https://github.com/lets-talk/docs',
       themeColor: '#F45B36',
       alias: {
-        '/.*/_navbar.md': '/_navbar.md'
+        '/.*/_navbar.md': '/_navbar.md',
+        '/.*/_sidebar.md': '/_sidebar.md'
       },
       coverpage: {
         '/': 'cover.md',
@@ -42,9 +42,9 @@
       },
       auto2top: true,
       executeScript: true,
-      loadSidebar: '../_sidebar.md',
+      loadSidebar: '/_sidebar.md',
 
-      loadNavbar: true,
+      loadNavbar: '',
       mergeNavbar: true,
       maxLevel: 1,
       subMaxLevel: 2,

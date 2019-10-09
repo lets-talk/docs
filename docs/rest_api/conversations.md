@@ -195,7 +195,13 @@ Creación de una una conversación. El autor del mensaje y la conversación es e
 | remote_id    | string | si          | Identificador del mensaje creado por el consumidor de la *API*. Debe seguir el formato [GUID](https://es.wikipedia.org/wiki/Identificador_%C3%BAnico_global) | -            |
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->
 
@@ -366,7 +372,13 @@ Cierre de una conversación.
 | status    | string | si          | `Closed`           | Estado a actualizar de la conversación. |
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->
 

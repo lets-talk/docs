@@ -61,6 +61,12 @@ Un mensaje tipo `SYSTEM` es agregado indicando quién realizó la acción de asi
 
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->

@@ -109,6 +109,12 @@ Creación de un **usuario/cliente** con obtención de token y datos asociados. S
 | token     | string | si          | Consumer token para autorizar la creación o obtención del cliente y sus datos. |
 
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 <!-- panels:end -->

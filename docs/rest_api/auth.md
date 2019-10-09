@@ -39,7 +39,13 @@ El *header* se ve como lo siguiente:
 
 !> Debes reemplazar <code>encoded_api_key== </code> por tu <i>API Key</i>, con los caracteres <code>`:X`</code> concatenados al final y codificada en `base64`
 
-[filename](../rest_api/_response_codes.md ':include')
+### Códigos de respuesta
+
+| Código | Significado                    |
+|--------|--------------------------------|
+| 401    | Credenciales inválidas.        |
+| 200    | Operación ejecutada con éxito. |
+
 
 
 <!-- panels:end -->
