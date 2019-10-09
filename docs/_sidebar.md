@@ -26,7 +26,14 @@
    * Component Library
      * [Showcase](storybook.md)
 * API Rest
-  * [Introducción](api_rest.md)
+  * [Introducción](rest_api/intro.md)
+  * [Autenticación](rest_api/auth.md)
+  * [Tokens](rest_api/tokens.md)
+  * [Clientes](rest_api/clients.md)
+  * [Conversaciones](rest_api/conversations.md)
+  * [Grupo de conversaciones](rest_api/conversation_groups.md)
+  * [Mensajes](rest_api/messages.md)
+  * [Metadata](rest_api/metadata.md)
 * BOTS
   * [Introducción](bots/intro.md)
   * [PubNub](bots/pubnub.md)
