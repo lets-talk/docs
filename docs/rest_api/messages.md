@@ -88,6 +88,8 @@ Publicación de un mensaje de texto plano a una conversación. El autor del mens
 |--------|--------------------------------|
 | 401    | Credenciales inválidas.        |
 | 200    | Operación ejecutada con éxito. |
+| 201    | Creación exitosa del recurso. |
+| 404    | El recurso referenciado no existe. |
 
 
 <!-- panels:end -->
