@@ -90,6 +90,7 @@ Publicación de un mensaje de texto plano a una conversación. El autor del mens
 | 200    | Operación ejecutada con éxito. |
 | 201    | Creación exitosa del recurso. |
 | 404    | El recurso referenciado no existe. |
+| 403    | Bloqueo de IP o solicitud no autorizada |
 
 
 <!-- panels:end -->
@@ -209,6 +210,9 @@ Los valores permitidos pueden estar restringidos por configuración de la organi
 |--------|--------------------------------|
 | 401    | Credenciales inválidas.        |
 | 200    | Operación ejecutada con éxito. |
+| 201    | Creación exitosa del recurso. |
+| 404    | El recurso referenciado no existe. |
+| 403    | Bloqueo de IP o solicitud no autorizada |
 
 
 <!-- panels:end -->
@@ -339,6 +343,9 @@ Obtención de los mensajes de una conversación.
 |--------|--------------------------------|
 | 401    | Credenciales inválidas.        |
 | 200    | Operación ejecutada con éxito. |
+| 201    | Creación exitosa del recurso. |
+| 404    | El recurso referenciado no existe. |
+| 403    | Bloqueo de IP o solicitud no autorizada. |
 
 
 <!-- panels:end -->
