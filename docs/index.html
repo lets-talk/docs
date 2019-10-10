@@ -7,7 +7,6 @@
   <meta name="description" content="This is a Widget project">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
-  <script src="//unpkg.com/docsify-copy-code@2.0.0/dist/docsify-copy-code.min.js"></script>
   <link rel="stylesheet" href="css/custom.css">
   <style>
     .markdown-section {
@@ -59,16 +58,24 @@
               + '<a href="https://docsify.js.org" target="_blank" style="color: inherit; font-weight: normal; text-decoration: none;">Powered by docsify</a>'
               + editHtml
           })
-        },
-        window.DocsifyCopyCodePlugin.init()
-      ]
+        }
+      ],
+      copyCode: {
+        buttonText: 'Copiar al portapapeles',
+        errorText: 'Error',
+        successText: 'Copiado!'
+      }
     }
+
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify-copy-code"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels@1.0.1/dist/docsify-example-panels.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script>
+  </script>
 </body>
 </html>

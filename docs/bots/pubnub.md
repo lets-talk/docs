@@ -148,7 +148,7 @@ Si se da el caso en que el mensaje corresponde a una nueva conversación (por se
 !>Para identificar los mensajes futuros de una conversación se debe guardar el `conversation_id`, valor que será usado para filtrar los siguientes mensajes para identificarlos como pertenecientes a una conversación.
 
 ##### Consideración 2
-!>Se debe hacer una llamada a la [API de Let’s Talk](https://apidoc.ltmessenger.com) para obtener todos los mensajes anteriores de la conversación si los hubiera, ya que la asignación al ***usuario/agente*** podría hacerse en cualquier momento de la conversación y no necesariamente el mensaje que llega es el primer mensaje. La descripción de este endpoint puede verse en el endpoing [Obtener mensajes de conversación](https://apidoc.ltmessenger.com/#obtener-mensajes-de-conversacion)
+!>Se debe hacer una llamada a la [API de Let’s Talk](/rest_api/intro.md) para obtener todos los mensajes anteriores de la conversación si los hubiera, ya que la asignación al ***usuario/agente*** podría hacerse en cualquier momento de la conversación y no necesariamente el mensaje que llega es el primer mensaje. La descripción de este endpoint puede verse en el endpoing [Obtener mensajes de conversación](#obtener-mensajes-de-conversacion)
 
 ### Evento de cierre de conversación
 
