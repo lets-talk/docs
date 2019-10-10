@@ -9,6 +9,6 @@ Por el momento tenemos ejemplos de código con `shell` y `curl`. Puedes verlos e
   * [Tokens](rest_api/tokens.md)
   * [Clientes](rest_api/clients.md)
   * [Conversaciones](rest_api/conversations.md)
-  * [Grupo de conversaciones](rest_api/conversation_groups.md)
+  * [Grupos de conversaciones](rest_api/conversation_groups.md)
   * [Mensajes](rest_api/messages.md)
   * [Metadata](rest_api/metadata.md)
