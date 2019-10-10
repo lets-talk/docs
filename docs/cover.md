@@ -4,4 +4,4 @@
 
 > Mensajería instantanea para mejorar la comunicación de tu empresa.
 
-[Documentación](#widget)
+[Documentación](#let39s-talk)
