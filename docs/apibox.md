@@ -51,7 +51,7 @@ Este evento se dispara cuando el widget se expande. Este evento puede ocurrir cu
 
 ## api.box.minimize
 
-Este evento se dispara cuando el widget se minimize. Este evento puede ocurrir cuando el usuario hace click en el widget estando este en el estado expandido o cuando se invoca al método [window.$LT.setDisplayState('minimized')](publicapi#windowltsetdisplaystatestring)
+Este evento se dispara cuando el widget se minimice. Este evento puede ocurrir cuando el usuario hace click en el widget estando este en el estado expandido o cuando se invoca al método [window.$LT.setDisplayState('minimized')](publicapi#windowltsetdisplaystatestring)
 
 ![Box Minimize example](_media/api.box.minimize.gif)
 
