@@ -127,3 +127,4 @@ Ninguno
 |--------|--------------------------------|
 | 401    | Credenciales inválidas.        |
 | 200    | Operación ejecutada con éxito. |
+<!-- panels:end -->
