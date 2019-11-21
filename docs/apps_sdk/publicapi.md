@@ -1,6 +1,6 @@
 # AppsSKD Api Metodos Publicos
 
-La api también permite controlar la visibilidad del chat y la escritura de mensajes internos, es decir, mensajes que son invisibles para el cliente. Esta funcionalidad es muy útil para registrar acciones relevantes automáticamente gatillados por eventos (ej: navegación, clicks, etc).
+La api también permite controlar que apps de forma programatica.
 
 ## *openApp(appNamespace: string): Promise<any>*
 
