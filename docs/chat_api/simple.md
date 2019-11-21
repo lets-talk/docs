@@ -10,7 +10,7 @@ los datos pedidos no dude en contactar a soporte.
 
 ## Ejemplo video instalación
 
-![Ejemplo Instalación](_media/installation-example.gif)
+![Ejemplo Instalación](../_media/installation-example.gif)
 
 ## Insertar en su sitio
 

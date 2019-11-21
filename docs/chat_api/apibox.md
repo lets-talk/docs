@@ -40,7 +40,7 @@ Este evento se dispara cuando el widget se oculta. Este evento puede ocurrir por
 
 Este evento se dispara cuando el widget se expande. Este evento puede ocurrir cuando el usuario hace click en el widget estando este en el estado minimizado o cuando se invoca al método [window.$LT.setDisplayState('small')](publicapi#windowltsetdisplaystatestring)
 
-![Box Expand example](_media/api.box.expand.gif)
+![Box Expand example](../_media/api.box.expand.gif)
 
 ```javascript
   messenger.on('api.box.expand', function() {
@@ -53,7 +53,7 @@ Este evento se dispara cuando el widget se expande. Este evento puede ocurrir cu
 
 Este evento se dispara cuando el widget se minimice. Este evento puede ocurrir cuando el usuario hace click en el widget estando este en el estado expandido o cuando se invoca al método [window.$LT.setDisplayState('minimized')](publicapi#windowltsetdisplaystatestring)
 
-![Box Minimize example](_media/api.box.minimize.gif)
+![Box Minimize example](../_media/api.box.minimize.gif)
 
 ```javascript
   messenger.on('api.box.minimize', function() {

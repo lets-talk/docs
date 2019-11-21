@@ -15,7 +15,7 @@ Oculta el box del chat sin destruir la sesión que tenga abierta.
   window.$LT.setDisplayState('hidden');
 ```
 
-![Box Hidden example](_media/setDisplayStateHidden.gif)
+![Box Hidden example](../_media/setDisplayStateHidden.gif)
 
 **Minimized**
 
@@ -26,7 +26,7 @@ Pone box del chat en estado minificado, esto es cerrado pero visible.
   window.$LT.setDisplayState('minimized');
 ```
 
-![Box Minimized example](_media/setDisplayStateMinimized.gif)
+![Box Minimized example](../_media/setDisplayStateMinimized.gif)
 
 **Small**
 
@@ -37,7 +37,7 @@ Pone box del chat en estado expandido, esto es abierto y visible.
   window.$LT.setDisplayState('small');
 ```
 
-![Box Expand example](_media/setDisplayStateSmall.gif)
+![Box Expand example](../_media/setDisplayStateSmall.gif)
 
 ## window.$LT.addChatMetaData([object], bool)
 Una vez que el chat está instalado y activo en la web se le puede enviar metadata que será agregada a la conversación en curso o bien a una futura que se pudiera iniciar en la sesión. Esta metadata puede ser una serie de valores definidos como par `clave: valor`. Estos valores quedarán disponibles en los reportes de las conversaciones. Además esta función acepta un segundo argumento booleano que indica si la adición de la metadata debe ser registtrada como mensaje interno en la conversación para informar al agente; con `true` se agrega el mensaje y con `false` se omite.
