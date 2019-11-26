@@ -1,5 +1,7 @@
 #  Let's Talk iOS SDK con el ChatSDK 0.5.0
 
+Puedes descargar el SDK desde [aquí](https://s3.amazonaws.com/prod.letsta.lk/mobile-sdk/ios/0.6.0/smallest+letstalk+example.zip).
+
 El SDK soporta iOS 9 en adelante y está hecho en Swift 4.2.
 
 Nota:
