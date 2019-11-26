@@ -1,5 +1,7 @@
 # Let's Talk Android SDK
 
+You can download the Android SDK [here](https://s3.amazonaws.com/prod.letsta.lk/mobile-sdk/android/0.6.0/v4(OpcionesParaDeshabilitar)-20190826T222732Z-001.zip).
+
 Basic feature list:
 
  * Login with multiple accounts as user of several domains
