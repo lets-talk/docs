@@ -3,7 +3,8 @@
 La api también permite controlar la visibilidad del chat y la escritura de mensajes internos, es decir, mensajes que son invisibles para el cliente. Esta funcionalidad es muy útil para registrar acciones relevantes automáticamente gatillados por eventos (ej: navegación, clicks, etc).
 
 ## window.$LT.setDisplayState([string])
-*Los valores posibles que se pueden usar son: **hidden**, **minimized**, **small** *
+
+Los valores posibles que se pueden usar son: *hidden*, *minimized*, *small*
 
 
 **Hidden**
@@ -19,7 +20,7 @@ Oculta el box del chat sin destruir la sesión que tenga abierta.
 
 **Minimized**
 
-Pone box del chat en estado minificado, esto es cerrado pero visible.
+Pone box del chat en estado minimizado, esto es cerrado pero visible.
 
 *Ejemplo:*
 ```javascript
@@ -52,12 +53,19 @@ Una vez que el chat está instalado y activo en la web se le puede enviar metada
 
 ## window.$LT.addInternalSystemMessage([message])
 
+Agrega un mensaje interno en la conversación (un mensaje sólo visible por el agente):
+
 *Ejemplo:*
 ```javascript
   window.$LT.addInternalSystemMessage('Ejemplo mensaje interno');
 ```
 
 ## window.$LT.startConversation([initialObject])
+
+Comienza una nueva conversación de forma programática. Recibe un objecto con los datos iniciales para iniciar una conversación.
+`inquiry` (opcional): Un entero que es el id del inquiry (Solicitud) con la que queremos asociar la conversacion
+`message` (opcional): Un object que tiene que tener 2 campos obligatorios: `content` y `content_type`. Lo que se complete en content sera el texto que es enviado como primer mensaje de la conversación.
+`metadata` (opcional): Un object que tiene clave/valor que permite agregar metadata a la conversación.
 
 *Ejemplo:*
 ```javascript
@@ -75,6 +83,8 @@ Una vez que el chat está instalado y activo en la web se le puede enviar metada
 ```
 
 ## window.$LT.logout()
+
+Cierra la sesion del usuario que esta teniendo una conversación.
 
 *Ejemplo:*
 ```javascript
