@@ -74,11 +74,11 @@ Comienza una nueva conversación de forma programática. Recibe un objecto con l
     message: { 
       content: "prueba", 
       content_type: "text" 
-      }, 
+    }, 
     metadata: { 
       vip: true, 
       golden: "yes" 
-      }
+    }
   });
 ```
 
