@@ -60,6 +60,15 @@ Agrega un mensaje interno en la conversación (un mensaje sólo visible por el a
   window.$LT.addInternalSystemMessage('Ejemplo mensaje interno');
 ```
 
+## window.$LT.setInquiry([integer])
+
+Define el _Inquiry_ para el contexto de creación de una conversación. Sólo será efectivo si se inicia una conversación. Es necesario conocer con anterioridad el `id` del _Inquiry_ deseado.
+
+*Ejemplo:*
+```javascript
+  window.$LT.setIquiry(888);
+```
+
 ## window.$LT.startConversation([initialObject])
 
 Comienza una nueva conversación de forma programática. Recibe un objecto con los datos iniciales para iniciar una conversación.
