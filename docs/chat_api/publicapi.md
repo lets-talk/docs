@@ -62,11 +62,11 @@ Agrega un mensaje interno en la conversación (un mensaje sólo visible por el a
 
 ## window.$LT.setInquiry([integer])
 
-Define el _Inquiry_ para el contexto de creación de una conversación. Sólo será efectivo si se inicia una conversación. Es necesario conocer con anterioridad el `id` del _Inquiry_ deseado.
+Define el _Inquiry_ para el contexto de creación de una conversación. Sólo será efectivo si se inicia una conversación. Es necesario conocer con anterioridad el `id` del _Inquiry_ deseado. Para limpiar el _Inquiry_ definido se puede usar el mismo método con argumento `0`.
 
 *Ejemplo:*
 ```javascript
-  window.$LT.setIquiry(888);
+  window.$LT.setIquiry(888); // define inquiry 888 
 ```
 
 ## window.$LT.startConversation([initialObject])
