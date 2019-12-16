@@ -1,4 +1,4 @@
-![logo](_media/logo_letstalk.png)
+![logo](_media/LT_Logo_Oficial_Transparente.png)
 
 # Let's Talk Docs
 
