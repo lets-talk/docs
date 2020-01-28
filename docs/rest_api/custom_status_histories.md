@@ -9,7 +9,7 @@
 #### ** Request **
 
 ```shell
-curl --location --request GET "https://api.letsta.lk/api/v1/custom_status_histories" \
+curl --location --request GET "https://api.letsta.lk/api/v1/custom_status_histories?from=2020-01-28%2012:26&to=2020-01-28%2012:27&page=1" \
 --header "Authorization: Basic Q0V6cHJ0M2R6ckdHeGV6eHpob2Q6WA==" \
 --header "Content-Type: application/json"
 ```
