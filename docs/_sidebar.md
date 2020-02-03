@@ -20,10 +20,10 @@
   * [Autenticación](rest_api/auth.md)
   * [Clientes](rest_api/clients.md)
   * [Conversaciones](rest_api/conversations.md)
-  * [Estados Personalizados](rest_api/custom_status_histories.md)
   * [Grupo de conversaciones](rest_api/conversation_groups.md)
   * [Mensajes](rest_api/messages.md)
   * [Metadata](rest_api/metadata.md)
+  * [Reportes](rest_api/reports.md)
   * [Tokens](rest_api/tokens.md)
 * BOTS
   * [Introducción](bots/intro.md)
