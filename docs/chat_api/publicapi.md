@@ -79,7 +79,7 @@ Comienza una nueva conversación de forma programática. Recibe un objecto con l
 *Ejemplo:*
 ```javascript
   window.$LT.startConversation({
-    inquiry: 34,
+    inquiry_id: 34,
     message: { 
       content: "prueba", 
       content_type: "text" 
