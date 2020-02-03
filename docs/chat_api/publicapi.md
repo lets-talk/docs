@@ -82,7 +82,7 @@ Comienza una nueva conversación de forma programática. Recibe un objecto con l
     inquiry_id: 34,
     message: { 
       content: "prueba", 
-      content_type: "text" 
+      content_type: "text/plain" 
     }, 
     metadata: { 
       vip: true, 
