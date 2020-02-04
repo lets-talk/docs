@@ -34,7 +34,7 @@ curl --location --request GET "https://api.letsta.lk/api/v1/reports/custom_statu
     "id": 2,
     "type": "User",
     "email": "pedropablo@gmail.com"
-  }
+  },
   "network_status": {
     "id": 2,
     "online": 1,
