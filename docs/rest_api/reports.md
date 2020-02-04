@@ -37,7 +37,7 @@ curl --location --request GET "https://api.letsta.lk/api/v1/reports/custom_statu
   },
   "network_status": {
     "id": 2,
-    "online": 1,
+    "online": true,
     "timestamp": 1552421559
   }
 }
