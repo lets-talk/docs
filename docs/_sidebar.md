@@ -13,8 +13,19 @@
      * [Abrir con click](chat_api/example1.md)
      * [Iniciar con Inquiry](chat_api/example2.md)
      * [Playground](chat_api/playground.md)
-   * Component Library
-     * [Showcase](storybook.md)
+* Launcher
+   * Instalación
+     * [Instalación Simple](apps_api/simple.md)
+     * [Instalacion Avanzada](apps_api/advanced.md)
+   * Uso sin instalación
+     * [Inicialización por parámetros de URL](apps_api/preset_chat.md)
+   * API
+     * [Metodos disponibles](apps_api/publicapi.md)
+   * Eventos
+     * [Eventos Temporales](apps_api/apievents.md)
+   * Ejemplos
+     * [Abrir con click](apps_api/example1.md)
+     * [Playground](apps_api/playground.md)
 * API Rest
   * [Introducción](rest_api/intro.md)
   * [Autenticación](rest_api/auth.md)
@@ -46,4 +57,6 @@
     * [Metodos disponibles](apps_sdk/publicapi.md)
   * Ejemplo
     * [Playground](apps_sdk/playground.md)
+* Libreria de componentes de Chat
+  * [Showcase](storybook.md)
 
