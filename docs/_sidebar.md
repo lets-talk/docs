@@ -15,17 +15,18 @@
      * [Playground](chat_api/playground.md)
 * Launcher
    * Instalación
-     * [Instalación Simple](apps_api/simple.md)
-     * [Instalacion Avanzada](apps_api/advanced.md)
+     * [Instalación Simple](chat_api/simple.md)
+     * [Instalacion Avanzada](chat_api/advanced.md)
    * Uso sin instalación
-     * [Inicialización por parámetros de URL](apps_api/preset_chat.md)
+     * [Inicialización por parámetros de URL](chat_api/preset_chat.md)
    * API
-     * [Metodos disponibles](apps_api/publicapi.md)
+     * [Metodos disponibles](chat_api/publicapi.md)
    * Eventos
-     * [Eventos Temporales](apps_api/apievents.md)
+     * [Eventos Temporales](chat_api/apievents.md)
    * Ejemplos
-     * [Abrir con click](apps_api/example1.md)
-     * [Playground](apps_api/playground.md)
+     * [Abrir con click](chat_api/example1.md)
+     * [Inquiry preseleccionado](chat_api/example2.md)
+     * [Playground](chat_api/playground.md)
 * API Rest
   * [Introducción](rest_api/intro.md)
   * [Autenticación](rest_api/auth.md)
