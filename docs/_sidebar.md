@@ -1,4 +1,4 @@
-* Chat Web
+* Chat Web - Version 1
    * Instalación
      * [Instalación Simple](chat_api/simple.md)
      * [Instalacion Avanzada](chat_api/advanced.md)
@@ -15,18 +15,24 @@
      * [Playground](chat_api/playground.md)
 * Launcher
    * Instalación
-     * [Instalación Simple](chat_api/simple.md)
-     * [Instalacion Avanzada](chat_api/advanced.md)
-   * Uso sin instalación
-     * [Inicialización por parámetros de URL](chat_api/preset_chat.md)
+     * [Instalación Simple](apps_api/simple.md)
+     * [Instalacion Avanzada](apps_api/advanced.md)
    * API
-     * [Metodos disponibles](chat_api/publicapi.md)
+     * [Metodos disponibles](apps_api/publicapi.md)
+   * CHAT
+     * [Metodos disponibles](apps_api/publicapi_app_chat.md)
    * Eventos
-     * [Eventos Temporales](chat_api/apievents.md)
+     * [Eventos Temporales](apps_api/apievents.md)
    * Ejemplos
-     * [Abrir con click](chat_api/example1.md)
-     * [Inquiry preseleccionado](chat_api/example2.md)
-     * [Playground](chat_api/playground.md)
+     * [Abrir con click](apps_api/example1.md)
+     * [Inquiry preseleccionado](apps_api/example2.md)
+     * [Playground](apps_api/playground.md)
+* Apps SDK (Creadores de Apps)
+   * [Instalación y Métodos](apps_sdk/writing_apps.md)
+   * [Anatomía de una App](apps_sdk/appanatomy.md)
+   * [Nombres de Apps](apps_sdk/appnamespace.md)
+   * [Posiciones de Apps](apps_sdk/positions.md)
+   * [Playground](apps_sdk/playground.md)
 * API Rest
   * [Introducción](rest_api/intro.md)
   * [Autenticación](rest_api/auth.md)

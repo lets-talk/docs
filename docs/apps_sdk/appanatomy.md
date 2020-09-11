@@ -78,6 +78,7 @@ export type AppPosition =
   FixedToCenterPosition;
 ```
 
+```typescript
 import { AppPosition, relationTypeY } from './types';
 export type PayloadType = 'html' | 'json' | 'markdown' | 'lt-basic-container' | 'lt-basic-container-multimedia';
 export type relationTypeX = 'LL' | 'LR' | 'RL' | 'RR';
@@ -256,6 +257,7 @@ export interface PositionStrategy {
   mountStrategy(): AddAppsStrategy;
 }
 ```
+
 ## Especificación del formato de namespace
 
 Los namespaces de las apps de LetsTalk estan formadas por 3 partes:
