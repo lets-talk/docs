@@ -28,11 +28,17 @@
      * [Inquiry preseleccionado](apps_api/example2.md)
      * [Playground](apps_api/playground.md)
 * Apps SDK (Creadores de Apps)
-   * [Instalación y Métodos](apps_sdk/writing_apps.md)
-   * [Anatomía de una App](apps_sdk/appanatomy.md)
-   * [Nombres de Apps](apps_sdk/appnamespace.md)
-   * [Posiciones de Apps](apps_sdk/positions.md)
-   * [Playground](apps_sdk/playground.md)
+  * Instalación 
+    * [Instalación y Métodos](apps_sdk/writing_apps.md)
+  * Nombrado y Referencia
+    * [Nombrar/Referencia una app](apps_sdk/appsnamespace.md)
+  * Posiciones
+    * [Tipos de posiciones](apps_sdk/positions.md)
+  * API
+    * [Metodos disponibles](apps_sdk/publicapi.md)
+  * Ejemplo
+    * [Playground](apps_sdk/playground.md)
+
 * API Rest
   * [Introducción](rest_api/intro.md)
   * [Autenticación](rest_api/auth.md)
@@ -55,15 +61,6 @@
 * Aplicación Android
    * [Configuración del SDK](android_sdk/android-sdk-config.md)
    * [Uso](android_sdk/android-sdk-client-usage.md)
-* Apps Web SDK
-  * Nombrado y Referencia
-    * [Nombrar/Referencia una app](apps_sdk/appsnamespace.md)
-  * Posiciones
-    * [Tipos de posiciones](apps_sdk/positions.md)
-  * API
-    * [Metodos disponibles](apps_sdk/publicapi.md)
-  * Ejemplo
-    * [Playground](apps_sdk/playground.md)
 * Libreria de componentes de Chat
   * [Showcase](storybook.md)
 
