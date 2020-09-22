@@ -46,3 +46,39 @@ Permite cerrar la app. Devuelve una promesa que se resuelve si se ejecuto correc
     .catch((e) => console.log('Error removing app:', e))
 ```
 
+## *isAvailable*
+#### *isAvailable (appName: string): Promise*
+
+Permite saber si una App esta disponible (cumple las reglas de disponibilidad en este instante). Devuelve una promesa que se resuelve si la App esta disponible y se hace reject en caso de que no este disponible
+
+*Ejemplo:*
+```javascript
+  window.$Letstalk.isAvailable('[APP_NAME]')
+    .then(() => { console.log('App is available') })
+    .catch((e) => console.log('App is not available:', e))
+```
+
+## *on*
+#### *on (eventName: string, callback: Function): Promise*
+
+Permite ejecutar una funcion cuando determinado evento ocurre. Para ver la lista de eventos consulte en la lista de eventos disponibles.
+
+*Ejemplo:*
+```javascript
+  window.$Letstalk.on('[EVENT_NAME]', function() {
+
+  });
+```
+
+## *listApps*
+#### *listApps (): Promise<string[]>*
+
+Permite obtener la lista de todas las Apps definidas. 
+
+*Ejemplo:*
+```javascript
+  window.$Letstalk.listApps().then((apps) => {
+    console.log('Got the following apps:', apps);
+  });
+```
+
