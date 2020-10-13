@@ -173,6 +173,129 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 | remote_id    | object | si          | -                                    | Identificador del mensaje creado por el consumidor de la *API*. Debe seguir el formato [GUID](https://es.wikipedia.org/wiki/Identificador_%C3%BAnico_global). |
 
 
+<!-- panels:end -->
+## Crear mensaje con tipo actionable/list
+
+<!-- panels:start -->
+
+<!-- div:right-panel -->
+
+<!-- tabs:start -->
+#### ** Request **
+
+```shell
+curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
+--header "Authorization: Basic {{encoded_api_key}}" \
+--header "Content-Type: application/json" \
+--data "{
+  \"content\": \"{
+    \"title\": \"Eliga una opcion:\",
+    \"viewType\": \"pill\",
+    \"items\": [
+        {\"type\": \"link\", \"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"},
+        {\"type\": \"quick-reply\", \"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"},
+    ]
+  }\",
+  \"content_type\": \"actionable/list\",
+  \"remote_id\": \"a55ac7b8-bca7-4ab3-a2e0-e0579fa21cea\",
+  \"conversation_id\": 1483229
+}"
+```
+<!-- tabs:end -->
+
+?> El comando previo retorna un JSON como el siguiente:
+
+<!-- tabs:start -->
+#### ** Response **
+
+```json
+{
+    "id": 32497317,
+    "content_type": "application/json",
+    "content": "{
+        \"title\": \"Eliga una opcion:\",
+        \"viewType\": \"pill\",
+        \"items\": [
+            {\"type\": \"link\", \"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"},
+            {\"type\": \"quick-reply\", \"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"},
+        ]
+    }",
+    "who": "client",
+    "replied_on": "2019-10-04T17:17:09.000+0000",
+    "mtype": "NORMAL",
+    "subject": null,
+    "created_at": "2019-10-04T17:17:09.000+0000",
+    "conversation_id": 1484305,
+    "remote_id": "a55ac7b8-bca7-4ab3-a2e0-e0579fa21cea",
+    "internal": false,
+    "type": "NORMAL",
+    "person": {
+        "id": 7089264,
+        "name": "Andrew Wiggin",
+        "internal_name": null,
+        "avatar": "https://api.letsta.lk/assets/default-avatar.gif",
+        "type": "Client",
+        "email": "andrew.wiggin@letsta.lk",
+        "active": true,
+        "description": null,
+        "role": null,
+        "availability_status_name": null,
+        "status_name": null
+    }
+}
+```
+<!-- tabs:end -->
+
+<!-- div:left-panel -->
+
+Publicación de un mensaje con archivo adjunto. El autor del mensaje es el cliente autenticado con la *API Key* especificada en el *header*.
+
+
+!> Este <i>endpoint</i> solo puede ser utilizado por el tipo <strong>usuario/cliente</strong> y <strong>usuario/agente</strong>.
+
+
+### HTTP Request
+
+`POST https://api.letsta.lk/api/v1/messages`
+
+
+### Form Parameters
+
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
+|-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| content         | string  | si          | -                  | JSON object con el contenido del mensaje. Debe tener los campos: title, items                                                                                 |
+| content_type    | string  | si          | `actionable/list`  | Tipo de mensaje.                                                                                                                                              |
+| remote_id       | object  | si          | -                  | Identificador del mensaje creado por el consumidor de la *API*. Debe seguir el formato [GUID](https://es.wikipedia.org/wiki/Identificador_%C3%BAnico_global). |
+| conversation_id | integer | si          | -                  | Id de conversación en donde se publicará el mensaje.  
+
+### Formato del content
+
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
+|-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title           | string  | si          | -                  | El texto que se muestra como titulo de las diferentes opciones (se muestra como un mensaje sobre la opciones)                                                 |
+| viewType        | string  | No          | `pill` o `list`    | Tipo de View que se usa para desplegar las opciones                                                                                                           |
+| items           | array   | si          | ObjectItemType     | Objecto que representa el tipo de opcion                                                                                                                      |
+
+#### Tipos de opciones permitidas (ObjectItemType)
+
+- link
+
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
+|-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type            | string  | si          | `link`             | El tipo de esta acción                                                                                                                                        |
+| label           | string  | si          | -                  | Texto que se usa para desplegar                                                                                                                               |
+| url             | string  | si          | -                  | Url absoluta del link que se quiere abrir                                                                                                                     |
+| target          | string  | no          | `_blank`, `_parent`| Determina donde se abre el link, si en una pagina nueva o en la pagina padre                                                                                  |                                                                                      |
+
+- quick-reply
+
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
+|-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type            | string  | si          | `quick-reply`      | El tipo de esta acción                                                                                                                                        |
+| label           | string  | si          | -                  | Texto que se usa para desplegar                                                                                                                               |
+| message         | string  | si          | -                  | Texto del mensaje que se escribe cuando se selecciona esta opción                                                                                                               |
+
+
 #### Valores permitidos de `content_type`
 
 Los valores permitidos pueden estar restringidos por configuración de la organización y corresponden a un subconjunto de los siguientes:
@@ -202,8 +325,9 @@ Los valores permitidos pueden estar restringidos por configuración de la organi
 | `video/mov`                                                                 | QuickTime                                       |
 | `video/mp4`                                                                 | MPEG-4                                          |
 | `video/quicktime`                                                           | QuickTime                                       |
+| `actionable/list`                                                           | Actionable List opciones de distintos tipos     |
 
-
+strip_emoji
 ### Códigos de respuesta
 
 | Código | Significado                    |
