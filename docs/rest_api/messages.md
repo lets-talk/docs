@@ -289,17 +289,14 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
 |-----------------|---------|-------------|--------------------|------------|
 | type            | string  | si          | `link`             | El tipo de esta acción                                                          |
-| label           | string  | si          | -                  | Texto que se usa para desplegar                                                 |
-| url             | string  | si          | -                  | Url absoluta del link que se quiere abrir                                       |
-| target          | string  | no          | `_blank`, `_parent`| Determina donde se abre el link, si en una pagina nueva o en la pagina padre    |
+| payload         | object  | si          | OptionLinkPayload  | Opciones de la opción de link
 
 - quick-reply
 
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción|
 |-----------------|---------|-------------|--------------------|------------|
 | type            | string  | si          | `quick-reply`      | El tipo de esta acción                                             |
-| label           | string  | si          | -                  | Texto que se usa para desplegar                                    |
-| message         | string  | si          | -                  | Texto del mensaje que se escribe cuando se selecciona esta opción  |
+| payload         | object  | si          | OptionLinkPayload  | Opciones de la opción de link                                      |
 
 #### Tipo de opciones (ActionableOptions)
 
@@ -309,6 +306,18 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 |-----------------|---------|-------------|--------------------|-----------------------------------------------------------------------------------------------|
 | viewType        | string  | si          | `list` | `pill`    | `list`            | El tipo de item elements                                                   |
 | showItemsIcon   | string  | si          | Boolean            | false             | Mostrar iconos de opciones                                                |
+
+### `payload` field de type `link` (OptionLinkPayload)
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+| label           | string  | si          | -                  | Texto que se usa para desplegar                                                 |
+| url             | string  | si          | -                  | Url absoluta del link que se quiere abrir                                       |
+| target          | string  | no          | `_blank`, `_parent`| Determina donde se abre el link, si en una pagina nueva o en la pagina padre    |
+
+### `payload` field de type `quick-reply` (QuickReplyPayload)
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+| label           | string  | si          | -                  | Texto que se usa para desplegar                                    |
+| message         | string  | si          | -                  | Texto del mensaje que se escribe cuando se selecciona esta opción  |
+
 
 #### Valores permitidos de `content_type`
 
