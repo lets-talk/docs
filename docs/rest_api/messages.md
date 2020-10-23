@@ -190,7 +190,10 @@ curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
 --data "{
   \"content\": \"{
     \"title\": \"Eliga una opcion:\",
-    \"viewType\": \"pill\",
+    \"options\": {
+        \"viewType\": \"pill\",
+        \"showItemsIcon\": true,
+    },
     \"items\": [
         {\"type\": \"link\", \"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"},
         {\"type\": \"quick-reply\", \"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"},
@@ -214,7 +217,10 @@ curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
     "content_type": "application/json",
     "content": "{
         \"title\": \"Eliga una opcion:\",
-        \"viewType\": \"pill\",
+        \"options\": {
+            \"viewType\": \"pill\",
+            \"showItemsIcon\": true,
+        },
         \"items\": [
             {\"type\": \"link\", \"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"},
             {\"type\": \"quick-reply\", \"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"},
@@ -261,40 +267,48 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 
 ### Form Parameters
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                    |
 |-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| content         | string  | si          | -                  | JSON object con el contenido del mensaje. Debe tener los campos: title, items                                                                                 |
-| content_type    | string  | si          | `actionable/list`  | Tipo de mensaje.                                                                                                                                              |
+| content         | string  | si          | -                  | JSON object con el contenido del mensaje. Debe tener los campos: title, items                 |
+| content_type    | string  | si          | `actionable/list`  | Tipo mensaje.                                                                                 |
 | remote_id       | object  | si          | -                  | Identificador del mensaje creado por el consumidor de la *API*. Debe seguir el formato [GUID](https://es.wikipedia.org/wiki/Identificador_%C3%BAnico_global). |
 | conversation_id | integer | si          | -                  | Id de conversación en donde se publicará el mensaje.  
 
 ### Formato del content
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                    |
 |-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title           | string  | si          | -                  | El texto que se muestra como titulo de las diferentes opciones (se muestra como un mensaje sobre la opciones)                                                 |
-| viewType        | string  | No          | `pill` o `list`    | Tipo de View que se usa para desplegar las opciones                                                                                                           |
-| items           | array   | si          | ObjectItemType     | Objecto que representa el tipo de opcion                                                                                                                      |
+| title           | string  | si          | -                  | El texto que se muestra como titulo de las diferentes opciones (se muestra como un mensaje sobre la opciones)                                                      |
+| options         | object  | No          | ActionableOptions  | Opciones del mensaje                                                                          |
+| items           | array   | si          | ObjectItemType     | Objecto que representa el tipo de opcion                                                      |
 
-#### Tipos de opciones permitidas (ObjectItemType)
+#### Tipos de items permitidos (ObjectItemType)
 
 - link
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
-|-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type            | string  | si          | `link`             | El tipo de esta acción                                                                                                                                        |
-| label           | string  | si          | -                  | Texto que se usa para desplegar                                                                                                                               |
-| url             | string  | si          | -                  | Url absoluta del link que se quiere abrir                                                                                                                     |
-| target          | string  | no          | `_blank`, `_parent`| Determina donde se abre el link, si en una pagina nueva o en la pagina padre                                                                                  |                                                                                      |
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+|-----------------|---------|-------------|--------------------|------------|
+| type            | string  | si          | `link`             | El tipo de esta acción                                                          |
+| label           | string  | si          | -                  | Texto que se usa para desplegar                                                 |
+| url             | string  | si          | -                  | Url absoluta del link que se quiere abrir                                       |
+| target          | string  | no          | `_blank`, `_parent`| Determina donde se abre el link, si en una pagina nueva o en la pagina padre    |
 
 - quick-reply
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción                                                                                                                                                   |
-|-----------------|---------|-------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type            | string  | si          | `quick-reply`      | El tipo de esta acción                                                                                                                                        |
-| label           | string  | si          | -                  | Texto que se usa para desplegar                                                                                                                               |
-| message         | string  | si          | -                  | Texto del mensaje que se escribe cuando se selecciona esta opción                                                                                                               |
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción|
+|-----------------|---------|-------------|--------------------|------------|
+| type            | string  | si          | `quick-reply`      | El tipo de esta acción                                             |
+| label           | string  | si          | -                  | Texto que se usa para desplegar                                    |
+| message         | string  | si          | -                  | Texto del mensaje que se escribe cuando se selecciona esta opción  |
 
+#### Tipo de opciones (ActionableOptions)
+
+- link
+
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Valor por defecto | Descripción                                                               |
+|-----------------|---------|-------------|--------------------|-----------------------------------------------------------------------------------------------|
+| viewType        | string  | si          | `list` | `pill`    | `list`            | El tipo de item elements                                                   |
+| showItemsIcon   | string  | si          | Boolean            | false             | Mostrar iconos de opciones                                                |
 
 #### Valores permitidos de `content_type`
 
