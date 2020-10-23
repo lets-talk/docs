@@ -309,12 +309,14 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 
 ### `payload` field de type `link` (OptionLinkPayload)
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+|-----------------|---------|-------------|-------------------------------|
 | label           | string  | si          | -                  | Texto que se usa para desplegar                                                 |
 | url             | string  | si          | -                  | Url absoluta del link que se quiere abrir                                       |
 | target          | string  | no          | `_blank`, `_parent`| Determina donde se abre el link, si en una pagina nueva o en la pagina padre    |
 
 ### `payload` field de type `quick-reply` (QuickReplyPayload)
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+|-----------------|---------|-------------|-------------------------------|
 | label           | string  | si          | -                  | Texto que se usa para desplegar                                    |
 | message         | string  | si          | -                  | Texto del mensaje que se escribe cuando se selecciona esta opción  |
 
