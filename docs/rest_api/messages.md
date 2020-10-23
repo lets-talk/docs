@@ -101,7 +101,7 @@ Publicación de un mensaje de texto plano a una conversación. El autor del mens
 <!-- div:right-panel -->
 
 <!-- tabs:start -->
-#### ** Request **
+#### HTTP Request
 
 ```shell
 curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
@@ -116,7 +116,7 @@ curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
 ?> El comando previo retorna un JSON como el siguiente:
 
 <!-- tabs:start -->
-#### ** Response **
+#### HTTP Response
 
 ```json
 {
@@ -195,8 +195,8 @@ curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
         \"showItemsIcon\": true,
     },
     \"items\": [
-        {\"type\": \"link\", \"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"},
-        {\"type\": \"quick-reply\", \"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"},
+        {\"type\": \"link\", \"payload\": {\"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"}},
+        {\"type\": \"quick-reply\", \"payload\": {\"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"}},
     ]
   }\",
   \"content_type\": \"actionable/list\",
@@ -222,8 +222,8 @@ curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
             \"showItemsIcon\": true,
         },
         \"items\": [
-            {\"type\": \"link\", \"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"},
-            {\"type\": \"quick-reply\", \"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"},
+            {\"type\": \"link\", \"payload\": {\"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"}},
+            {\"type\": \"quick-reply\", \"payload\": {\"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"}},
         ]
     }",
     "who": "client",
@@ -284,14 +284,14 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 
 #### Tipos de items permitidos (ObjectItemType)
 
-- link
+#### link
 
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
 |-----------------|---------|-------------|--------------------|------------|
 | type            | string  | si          | `link`             | El tipo de esta acción                                                          |
 | payload         | object  | si          | OptionLinkPayload  | Opciones de la opción de link
 
-- quick-reply
+#### quick-reply
 
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Descripción|
 |-----------------|---------|-------------|--------------------|------------|
@@ -300,12 +300,12 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 
 #### Tipo de opciones (ActionableOptions)
 
-- link
+##### link
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos | Valor por defecto | Descripción                                                               |
-|-----------------|---------|-------------|--------------------|-----------------------------------------------------------------------------------------------|
-| viewType        | string  | si          | `list` | `pill`    | `list`            | El tipo de item elements                                                   |
-| showItemsIcon   | string  | si          | Boolean            | false             | Mostrar iconos de opciones                                                |
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+|-----------------|---------|-------------|--------------------|------------|
+| viewType            | string  | si          | `list` | `pill`             | El tipo de display del item                                                          |
+| showItemsIcon       | object  | si          | Boolean  | false |
 
 ### `payload` field de type `link` (OptionLinkPayload)
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
