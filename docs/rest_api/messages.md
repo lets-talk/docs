@@ -215,17 +215,17 @@ curl --location --request POST "https://api.letsta.lk/api/v1/messages" \
 {
     "id": 32497317,
     "content_type": "application/json",
-    "content": "{
-        \"title\": \"Eliga una opcion:\",
-        \"options\": {
-            \"viewType\": \"pill\",
-            \"showItemsIcon\": true,
+    "content": {
+        "title": "Eliga una opcion:",
+        "options": {
+            "viewType": "pill",
+            "showItemsIcon": true,
         },
-        \"items\": [
-            {\"type\": \"link\", \"payload\": {\"label\": \"Haz click\", \"url\": \"https://www.google.com\", \"target\": \"_blank\"}},
-            {\"type\": \"quick-reply\", \"payload\": {\"label\": \"Transferirme\", \"message\": \"Transferirme con un ejecutvio\"}},
+        "items": [
+            {"type": "link", "payload": {"label": "Haz click", "url": "https://www.google.com", "target": "_blank"}},
+            {"type": "quick-reply", "payload": {"label": "Transferirme", "message": "Transferirme con un ejecutvio"}},
         ]
-    }",
+    },
     "who": "client",
     "replied_on": "2019-10-04T17:17:09.000+0000",
     "mtype": "NORMAL",
