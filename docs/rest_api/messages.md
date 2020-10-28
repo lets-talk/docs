@@ -286,10 +286,10 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 
 #### link
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
+| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos |Descripción |
 |-----------------|---------|-------------|--------------------|------------|
-| type            | string  | si          | `link`             | El tipo de esta acción                                                          |
-| payload         | object  | si          | OptionLinkPayload  | Opciones de la opción de link
+| type            | string  | si          | `link`             | El tipo de esta acción                                             |
+| payload         | object  | si          | OptionLinkPayload  | Opciones de la opción de link                                      |
 
 #### quick-reply
 
@@ -302,10 +302,10 @@ Publicación de un mensaje con archivo adjunto. El autor del mensaje es el clien
 
 ##### link
 
-| Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
-|-----------------|---------|-------------|--------------------|------------|
-| viewType            | string  | si          | `list` | `pill`             | El tipo de display del item                                                          |
-| showItemsIcon       | object  | si          | Boolean  | false |
+| Propiedad           | Tipo    | ¿Requerido? | Valores permitidos |Descripción |
+|---------------------|---------|-------------|--------------------|------------|
+| viewType            | string  | si          | `list` o `pill`    | El tipo de display del item     |
+| showItemsIcon       | boolean | si          | `true` o `false`   | Si la opción muestra un icono o no | 
 
 ### `payload` field de type `link` (OptionLinkPayload)
 | Propiedad       | Tipo    | ¿Requerido? | Valores permitidos Descripción|
